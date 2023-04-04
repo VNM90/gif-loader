@@ -1,5 +1,6 @@
 import * as bootstrap from 'bootstrap';
 import { fetchData } from './api.js';
+import { displayImages } from './display.js';
 
 const searchInput = document.getElementById('search-input');
 const submitBtn = document.getElementById('submit-btn');
@@ -12,20 +13,10 @@ submitBtn.addEventListener('click', async () => {
     try {
       const response = await fetchData(apiURL);
       console.log(response);
-      displayImages(response.data)
+      displayImages(response.data, imageContainer)
 
     } catch (error) {
       console.error('Error in main.js:', error);
     }
   });
 
-function displayImages(imageData) {
-imageContainer.innerHTML = '';
-
-imageData.forEach(image => {
-    const imgElement = document.createElement('img');
-    imgElement.src = image.images.fixed_width.url;
-    imgElement.alt = image.title;
-    imageContainer.appendChild(imgElement);
-});
-}
