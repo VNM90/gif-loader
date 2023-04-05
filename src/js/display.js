@@ -8,3 +8,5 @@ export function displayImages(imageData, imageContainer) {
         imageContainer.appendChild(imgElement);
     });
     }
+
+ 
