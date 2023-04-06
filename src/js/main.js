@@ -3,10 +3,10 @@ import { fetchData } from './api.js';
 import { displayImages } from './display.js';
 import { displayPagination } from './pagination.js';
 
-
 const searchInput = document.getElementById('search-input');
 const submitBtn = document.getElementById('submit-btn');
 const imageContainer = document.getElementById('image-container');
+const messageElement = document.getElementById('message');
 
 submitBtn.addEventListener('click', async () => {
   const searchTerm = searchInput.value;
@@ -19,11 +19,20 @@ async function fetchAndDisplayImages(searchTerm, offset) {
   try {
     const response = await fetchData(apiURL);
     console.log(response);
-    imageContainer.innerHTML = ''; // Clear the existing images
+
+    if (response.pagination.total_count === 0) {
+      messageElement.innerText = 'No results found for your search.';
+      imageContainer.innerHTML = '';
+      return;
+    }
+
+    messageElement.innerText = '';
+    imageContainer.innerHTML = '';
     displayImages(response.data, imageContainer);
     displayPagination(response.pagination.total_count, searchTerm, fetchAndDisplayImages);
   } catch (error) {
     console.error('Error:', error);
+    messageElement.innerText = 'An error occurred. Please try again later.';
   }
 }
 
