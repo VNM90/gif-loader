@@ -10,12 +10,14 @@
 </head>
 <body>
     <div class="container py-4 px-3 mx-auto">
-        <h1>Gif Loader</h1>
-        <input type="text" id="search-input" placeholder="Search...">
-        <button id="submit-btn">Submit</button>
+        <h1>GIF LOADER</h1>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search..." id="search-input">
+            <button class="btn btn-outline-secondary" type="button" id="submit-btn">Submit</button>
+        </div>
+        <div id="image-container"></div>
+        <div id="pagination"></div>
+        <div id="message"></div>
     </div>
-    <div id="image-container"></div>
-    <div id="pagination"></div>
-    <div id="message"></div>
 </body>
 </html>

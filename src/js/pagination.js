@@ -1,3 +1,4 @@
+const pagination = document.getElementById('pagination');
 let itemsPerPage = 10
 let currentPage = 0
 
@@ -22,4 +23,8 @@ export function displayPagination(totalResults, searchTerm, fetchAndDisplayImage
 
     pagination.appendChild(pageBtn);
   }
+}
+
+export function clearPagination() {
+  pagination.innerHTML = '';
 }

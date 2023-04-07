@@ -2,6 +2,7 @@ import * as bootstrap from 'bootstrap';
 import { fetchData } from './api.js';
 import { displayImages } from './display.js';
 import { displayPagination } from './pagination.js';
+import { clearPagination } from './pagination.js';
 
 const searchInput = document.getElementById('search-input');
 const submitBtn = document.getElementById('submit-btn');
@@ -9,6 +10,7 @@ const imageContainer = document.getElementById('image-container');
 const messageElement = document.getElementById('message');
 
 submitBtn.addEventListener('click', async () => {
+  clearPagination();
   const searchTerm = searchInput.value;
   await fetchAndDisplayImages(searchTerm, 0);
 });
