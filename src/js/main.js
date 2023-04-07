@@ -1,4 +1,3 @@
-import * as bootstrap from 'bootstrap';
 import { fetchData } from './api.js';
 import { displayImages } from './display.js';
 import { displayPagination } from './pagination.js';
@@ -23,7 +22,7 @@ async function fetchAndDisplayImages(searchTerm, offset) {
     console.log(response);
 
     if (response.pagination.total_count === 0) {
-      messageElement.innerText = 'No results found for your search.';
+      messageElement.innerHTML = '<div class="alert alert-primary" role="alert">No results found for your search.</div>';
       imageContainer.innerHTML = '';
       return;
     }
@@ -34,7 +33,7 @@ async function fetchAndDisplayImages(searchTerm, offset) {
     displayPagination(response.pagination.total_count, searchTerm, fetchAndDisplayImages);
   } catch (error) {
     console.error('Error:', error);
-    messageElement.innerText = 'An error occurred. Please try again later.';
+    messageElement.innerHTML = '<div class="alert alert-danger" role="alert">An error occurred. Please try again later.</div>';
   }
 }
 

@@ -6,6 +6,7 @@ export function displayImages(imageData, imageContainer) {
         imgElement.src = image.images.fixed_width.url;
         imgElement.alt = image.title;
         imageContainer.appendChild(imgElement);
+        imgElement.classList.add('my-1', 'mx-1');
     });
     }
 
