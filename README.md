@@ -13,7 +13,7 @@ Gif Loader is a simple web application that allows users to search for GIFs usin
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/gif-loader.git
+git clone https://github.com/vnm90/gif-loader.git
 cd gif-loader
 ```
 
